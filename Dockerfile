@@ -9,5 +9,5 @@ ENV MAKERSUITE_API_KEY=$MAKERSUITE_API_KEY
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 8080
 CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
