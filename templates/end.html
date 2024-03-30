@@ -1,0 +1,31 @@
+<style>
+  .ask_financegpt_button {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .ask_finbert_button {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+
+<html>
+    <h1>We are sorry to see you go. Thank you and good bye</h1>
+    <img src="../static/huggingface-bye.svg" alt="My Image" width="320" height="240"/>
+    <form action="/" method="post">
+      <p><input type="submit" value="Ask FinBERT" class="ask_finbert_button"/></p>
+    </form>
+    <form action="/financegpt" method="post">
+      <p><input type="submit" value="Ask FinanceGPT" class="ask_financegpt_button"/></p>
+    </form>
+</html>
