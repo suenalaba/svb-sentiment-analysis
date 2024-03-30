@@ -18,7 +18,7 @@ app = Flask(__name__)
 def index():
     if request.method == "POST" and request.form.get("tweet"):
         tweet = request.form.get("tweet")
-        return (render_template("index.html", result=tweet+" bert is still in the making"))
+        return (render_template("index.html", result=tweet+" bert is still in the makingz"))
     else:
         return (render_template("index.html", result="Please key in a financial text or tweet."))
 
