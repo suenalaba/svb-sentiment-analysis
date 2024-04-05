@@ -1,0 +1,8 @@
+{
+  "flask": {
+      "image": ":svb-sentiment-analysis.svb-sentiment-container.2",
+      "ports": {
+          "8080": "HTTP"
+      }
+  }
+}
