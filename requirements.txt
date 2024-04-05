@@ -1,6 +1,6 @@
 flask
-gunicorn
 google-generativeai
+gunicorn
 python-dotenv
 torch
 transformers

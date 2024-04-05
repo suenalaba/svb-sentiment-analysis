@@ -39,6 +39,7 @@ def financegpt():
         prompt = "Is this financial text a positive or negative sentiment: " + tweet
         result = palm.chat(**gpt_model, messages=prompt)
         return (render_template("financegpt.html", result=result.last))
+
     else:
         return (render_template("financegpt.html", result="Please key in a financial text or tweet."))
 
@@ -49,4 +50,4 @@ def end():
         return render_template("end.html")
     
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
