@@ -1,2 +1,6 @@
 .env
 guide.txt
+.ipynb_checkpoints
+*.ipynb
+*.json
+venv

@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, request, render_template
 import google.generativeai as palm
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+# from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 load_dotenv()
 
@@ -14,8 +14,8 @@ gpt_model = {
 palm.configure(api_key=MAKERSUITE_API_KEY)
 
 
-tokenizer = AutoTokenizer.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
-finbert_model = AutoModelForSequenceClassification.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
+# tokenizer = AutoTokenizer.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
+# finbert_model = AutoModelForSequenceClassification.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
 
 app = Flask(__name__)
 
@@ -23,12 +23,13 @@ app = Flask(__name__)
 def index():
     if request.method == "POST" and request.form.get("tweet"):
         tweet = request.form.get("tweet")
-        inputs = tokenizer(tweet, return_tensors="pt")
-        outputs = finbert_model(**inputs)
-        logits = outputs.logits
-        predicted_class_id = logits.argmax(-1).item()
-        predicted_class_label = finbert_model.config.id2label[predicted_class_id] 
-        return (render_template("index.html", result=predicted_class_label.upper()))
+        # inputs = tokenizer(tweet, return_tensors="pt")
+        # outputs = finbert_model(**inputs)
+        # logits = outputs.logits
+        # predicted_class_id = logits.argmax(-1).item()
+        # predicted_class_label = finbert_model.config.id2label[predicted_class_id] 
+        # return (render_template("index.html", result=predicted_class_label.upper()))
+        return (render_template("index.html", result=tweet))
     else:
         return (render_template("index.html", result="Please key in a financial text or tweet."))
 
