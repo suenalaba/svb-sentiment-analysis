@@ -1,0 +1,2 @@
+model-config/model.safetensors filter=lfs diff=lfs merge=lfs -text
+model_config/model.safetensors filter=lfs diff=lfs merge=lfs -text
