@@ -37,18 +37,18 @@ def index():
     if request.method == "POST" and request.form.get("tweet"):
         tweet = request.form.get("tweet")
         model_dir = "model_config"
-        # loaded_model = AutoModelForSequenceClassification.from_pretrained(model_dir)
-        # loaded_tokenizer = AutoTokenizer.from_pretrained(model_dir)
-        # sentiment_output = get_custom_prediction(loaded_model, loaded_tokenizer, tweet)
-        tokenizer = AutoTokenizer.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
-        finbert_model = AutoModelForSequenceClassification.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
-        inputs = tokenizer(tweet, return_tensors="pt")
-        outputs = finbert_model(**inputs)
-        logits = outputs.logits
-        predicted_class_id = logits.argmax(-1).item()
-        predicted_class_label = finbert_model.config.id2label[predicted_class_id] 
-        return (render_template("index.html", result=predicted_class_label.upper()))
-        # return (render_template("index.html", result=sentiment_output.upper()))
+        loaded_model = AutoModelForSequenceClassification.from_pretrained(model_dir)
+        loaded_tokenizer = AutoTokenizer.from_pretrained(model_dir)
+        sentiment_output = get_custom_prediction(loaded_model, loaded_tokenizer, tweet)
+        # tokenizer = AutoTokenizer.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
+        # finbert_model = AutoModelForSequenceClassification.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
+        # inputs = tokenizer(tweet, return_tensors="pt")
+        # outputs = finbert_model(**inputs)
+        # logits = outputs.logits
+        # predicted_class_id = logits.argmax(-1).item()
+        # predicted_class_label = finbert_model.config.id2label[predicted_class_id] 
+        # return (render_template("index.html", result=predicted_class_label.upper()))
+        return (render_template("index.html", result=sentiment_output.upper()))
     else:
         return (render_template("index.html", result="Please key in a financial text or tweet."))
 
