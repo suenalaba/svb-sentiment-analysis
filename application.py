@@ -55,8 +55,12 @@ def stockpriceanalyzer():
             data = r.json()
             symbol = data['Meta Data']['2. Symbol']
             last_30_days = {k: data['Time Series (Daily)'][k] for k in list(data['Time Series (Daily)'])[:30]}
-            main_prompt = f'Given the last 30 traded days for {symbol} stock: [{last_30_days}], DO NOTE THAT the prices are most recent date first analyze the following:'
-            prompt = main_prompt + analysis.analysis
+            last_30_days_tabular = "Date\tOpen\tHigh\tLow\tClose\tVolume\n"  # Header row
+            for date, values in last_30_days.items():
+                last_30_days_tabular += f"{date}\t{values['1. open']}\t{values['2. high']}\t{values['3. low']}\t{values['4. close']}\t{values['5. volume']}\n"
+            main_prompt = f'I have the last 30 trading days of {symbol} stock data including open, high, low, close, and volume. Please provide a detailed technical analysis, covering:'
+            sub_prompt = f'The stock data is as follows: \n{last_30_days_tabular}'
+            prompt = f'{main_prompt}\n {analysis.analysis}\n {sub_prompt}'
             result = palm.chat(**gpt_model, messages=prompt)
             return (render_template("stockpriceanalyzer.html", result={"analysis": result.last, "symbol": symbol}))
         except:

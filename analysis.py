@@ -1,22 +1,14 @@
 analysis = """
-1. Overall price trend:
-   - Calculate the percentage change between the first and last data points.
-   - Identify any significant price swings or patterns during the period.
+* **Overall Trend:** Determine the primary trend over the last 30 days (upward, downward, sideways). 
+* **Significant Price Movements:** Identify any major breakouts above previous resistance levels or breakdowns below support levels.
+* **Support and Resistance:** Pinpoint key support and resistance areas where the price has reversed direction in the past.
+* **Candlestick Patterns:** Highlight notable candlestick patterns (e.g., bullish engulfing, doji, etc.) that could signal potential trend changes or continuations.
+* **Volume Trends:** Analyze changes in volume. Do volume spikes coincide with breakouts/breakdowns or trend confirmations?
+* **Trading Opportunities:** Suggest potential trading opportunities based on your analysis.
+* **Technical Indicators:** 
+    * Calculate and interpret the 20-day and 50-day Simple Moving Averages (SMA). Are they crossed (Golden Cross/Death Cross)?
+    * Calculate the Relative Strength Index (RSI). Is the stock potentially overbought (above 70) or oversold (below 30)?
+    * Calculate the MACD. Analyze the relationship between the MACD line, its signal line, and the zero line for trend and momentum signals.
 
-2. Moving Averages:
-   - Calculate the 20-day and 50-day simple moving averages (SMAs).
-   - Analyze the relationship between the price and the moving averages (e.g., golden cross, death cross).
-
-3. MACD (Moving Average Convergence Divergence):
-   - Calculate the MACD using a 12-day EMA for the faster line and a 26-day EMA for the slower line.
-   - Analyze the MACD line and the MACD histogram for potential buy or sell signals.
-
-4. Relative Strength Index (RSI):
-   - Calculate the 14-day RSI.
-   - Identify periods when the RSI is overbought (above 70) or oversold (below 30).
-
-5. Conclusion:
-   - Based on the analysis of the above indicators, provide a detailed assessment of the stocks potential future trend (bullish, bearish, or range-bound).
-   - Highlight any divergences or convergences between the indicators.
-   - Suggest potential entry or exit points based on the analysis.
+**Please provide a clear written summary.**
 """
