@@ -1,1 +1,5 @@
 venv
+__pycache__
+model_config
+model_deployments
+.gitattributes
