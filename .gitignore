@@ -3,3 +3,4 @@ guide.txt
 .ipynb_checkpoints
 *.ipynb
 venv
+__pycache__

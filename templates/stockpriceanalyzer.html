@@ -46,7 +46,7 @@
     <p><input type="text" name="selected_symbol" style="width: 80%;"/></p>
     <p><input type="submit" value="Get Stock Price Analysis" class="get_stock_price_analysis_button"/></p>
   </form>
-  <p><b>The analysis for the stock you chose is:</b> {{result}}</p>
+  <p><b>The analysis for {{result.symbol}}:</b> {{result.analysis}}</p>
   <br/>
   <form action="/" method="post">
     <p>I want to ask finBERT instead.</p>
