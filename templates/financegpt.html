@@ -27,6 +27,15 @@
     cursor: pointer;
     border-radius: 5px;
   }
+  .ask_stock_prize_analyzer_button {
+    background-color: #FF5BAE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 </style>
 
 <html>
@@ -37,13 +46,17 @@
     <p><input type="text" name="tweet" style="width: 80%;"/></p>
     <p><input type="submit" value="Get Sentiment" class="get_sentiment_button"/></p>
   </form>
-  <p>The sentiment for this financial text / tweet is: {{result}}</p>
+  <p><b>The sentiment for this financial text / tweet is:</b> {{result}}</p>
   <br/>
   <p>Example Text: Geopolitical tensions and energy supply disruptions further dampen investor confidence.</p>
   <br/>
   <form action="/" method="post">
     <p>I want to ask finBERT instead.</p>
     <p><input type="submit" value="Ask FinBERT" class="ask_finbert_button"/></p>
+  </form>
+  <form action="/stockpriceanalyzer" method="post">
+    <p>Ask StockPriceAnalyzer for more stock price analysis.</p>
+    <p><input type="submit" value="Ask StockPriceAnalyzer" class="ask_stock_prize_analyzer_button"/></p>
   </form>
   <form action="/end" method="post">
     <p><input type="submit" value="Quit" class="exit_button"/></p>

@@ -17,6 +17,15 @@
     cursor: pointer;
     border-radius: 5px;
   }
+  .ask_stock_prize_analyzer_button {
+    background-color: #FF5BAE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 </style>
 
 <html>
@@ -27,5 +36,8 @@
     </form>
     <form action="/financegpt" method="post">
       <p><input type="submit" value="Ask FinanceGPT" class="ask_financegpt_button"/></p>
+    </form>
+    <form action="/stockpriceanalyzer" method="post">
+      <p><input type="submit" value="Ask StockPriceAnalyzer" class="ask_stock_prize_analyzer_button"/></p>
     </form>
 </html>
