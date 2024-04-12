@@ -38,7 +38,7 @@ def index():
 def financegpt():
     if request.method == "POST" and request.form.get("tweet"):
         tweet = request.form.get("tweet")
-        prompt = "Is this financial text a positive or negative sentiment: " + tweet
+        prompt = analysis.stock_sentiment_analysis + tweet
         result = palm.chat(**gpt_model, messages=prompt)
         return (render_template("financegpt.html", result={"sentiment": result.last, "tweet": tweet}))
 
@@ -60,7 +60,7 @@ def stockpriceanalyzer():
                 last_30_days_tabular += f"{date}\t{values['1. open']}\t{values['2. high']}\t{values['3. low']}\t{values['4. close']}\t{values['5. volume']}\n"
             main_prompt = f'I have the last 30 trading days of {symbol} stock data including open, high, low, close, and volume. Please provide a detailed technical analysis, covering:'
             sub_prompt = f'The stock data is as follows: \n{last_30_days_tabular}'
-            prompt = f'{main_prompt}\n {analysis.analysis}\n {sub_prompt}'
+            prompt = f'{main_prompt}\n {analysis.stock_price_analysis}\n {sub_prompt}'
             result = palm.chat(**gpt_model, messages=prompt)
             return (render_template("stockpriceanalyzer.html", result={"analysis": result.last, "symbol": symbol}))
         except:
