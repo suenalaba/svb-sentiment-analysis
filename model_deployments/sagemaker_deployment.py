@@ -11,17 +11,11 @@ iam = boto3.client('iam')
 response = iam.get_role(RoleName=role_name)
 role = response['Role']['Arn']
 
-hub = {
-    'HF_MODEL_ID':'mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis',
-    'HF_TASK':'text-classification'
-}
-
 huggingface_model = HuggingFaceModel(
     transformers_version='4.37.0',
     pytorch_version='2.1.0',
     py_version='py310',
-    env=hub,
-#     model_data="s3://sagemaker-model-self/model.tar.gz",
+    model_data="s3://sagemaker-model-self/model.tar.gz", # s3 file path
     role=role, 
 )
 
